@@ -44,7 +44,7 @@ const Navbar = () => {
                 </a>
 
                 {/* Contact Link */}
-                <a href="#contact" className="relative overflow-hidden h-6 group text-white text-sm mx-2">
+                <a href="#Contact" className="relative overflow-hidden h-6 group text-white text-sm mx-2">
                     <span className="block group-hover:-translate-y-full transition-transform duration-300">
                         Contact
                     </span>

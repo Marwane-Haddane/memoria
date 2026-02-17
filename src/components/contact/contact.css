@@ -1,0 +1,32 @@
+.btnContact {
+  padding: 1rem 2rem;
+  font-weight: 700;
+  background: rgb(255, 255, 255);
+  color: rgb(0, 72, 255);
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border-bottom: 2px solid rgb(22, 205, 202);
+  border-right: 2px solid rgb(0, 208, 255);
+  border-top: 2px solid rgb(8, 238, 123);
+  border-left: 2px solid rgb(8, 238, 123);
+  transition-duration: 1s;
+  transition-property: border-top, border-left, border-bottom, border-right,
+    box-shadow;
+}
+
+.btnContact:hover {
+  border-top: 2px solid rgb(22, 205, 202);
+  border-left: 2px solid rgb(22, 205, 202);
+  border-bottom: 2px solid rgb(8, 238, 123);
+  border-right: 2px solid rgb(8, 238, 123);
+  box-shadow: rgba(3, 225, 237, 0.4) 5px 5px, rgba(3, 247, 190, 0.3) 10px 10px,
+    rgba(0, 255, 170, 0.2) 15px 15px;
+}
+
+
+.hovF{
+    transition: 700ms;
+}
+.hovF:hover{
+    transform: scale(1.01);
+}
