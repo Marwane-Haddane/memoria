@@ -1,0 +1,24 @@
+/* 
+.welcome{
+margin-right:  0;
+} */
+
+* {
+                        font-family: "Poppins", sans-serif;
+}
+
+
+.heroimg{
+  width: 50rem;
+  height: 50rem;
+  transition: 700ms;
+}
+.heroimg:hover{
+  transform: scale(1.1);
+}
+.hov{
+    transition: 700ms;
+}
+.hov:hover{
+    transform: scale(1.1);
+}

@@ -1,0 +1,6 @@
+.hov{
+    transition: 700ms;
+}
+.hov:hover{
+    transform: scale(1.1);
+}
