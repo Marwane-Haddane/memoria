@@ -1,7 +1,7 @@
 import React from 'react'
 import './home.css'
 import hero from '../../assets//Alzheimer.svg'
-import Nav from '../nav/Nav'
+import { Link } from 'react-router-dom';
 
 
 
@@ -12,7 +12,7 @@ function Home() {
     return (
         <>
             <section id='home' className='w-full bg-[url("https://assets.prebuiltui.com/images/components/hero-section/hero-grid-gradient-img.png")] bg-cover bg-center bg-no-repeat px-4 pb-10'>
-                <Nav></Nav>
+    
                 <div className='w-full md:px-16 lg:px-24 xl:px-32 mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-8 '>
                     
                     
@@ -29,6 +29,7 @@ function Home() {
 
 
                         {/*------------------- fix the link here to start -------------------- */}
+                        <Link to="/patient">
                         <button id='' class="btn-53">
                         <div class="original">Let's_Start</div>
                         <div class="letters">
@@ -46,7 +47,7 @@ function Home() {
                             <span>T</span>
                         </div>
                         </button>
-
+                        </Link>
 
 
                        

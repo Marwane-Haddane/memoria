@@ -57,15 +57,4 @@
     background: #0f172a; /* Dark Navy to match your theme */
     border-radius: 9999px;
 }
-.blure {
-    /* Ensures the blur covers the full height of the nav */
-    height: 80px; 
-    /* Ensures it spans the full width from edge to edge */
-    left: 0;
-    top: 0;
-    /* Optional: adds a subtle border so the blur "pops" against the background */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-}
 
