@@ -38,7 +38,7 @@ margin-right:  0;
 
 .btn-53 {
   -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: button;
+  appearance: button;
   background-color: oklch(88.084% 0.20581 158.088);
   background-image: none;
   color: #fff;
@@ -49,7 +49,7 @@ margin-right:  0;
   font-size: 100%;
   line-height: 1.5;
   margin: 0;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  mask-image: -webkit-radial-gradient(#000, #fff);
   padding: 0;
 }
 
@@ -63,7 +63,7 @@ margin-right:  0;
 
 .btn-53 svg {
   display: block;
-  vertical-align: middle;
+  
 }
 
 .btn-53 [hidden] {
