@@ -72,8 +72,8 @@ function About() {
           <div style={{ height: '600px', position: 'relative' }}>
             <CircularGallery 
             items={testimonialData} 
-            bend={3} 
-            textColor="#000000" /* Change this if your site background is light! */
+            bend={1} 
+            textColor="#2a2721" /* Change this if your site background is light! */
             borderRadius={0.05} 
             />
 
