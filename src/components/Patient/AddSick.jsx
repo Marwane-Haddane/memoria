@@ -4,6 +4,7 @@ import { ChevronDownIcon } from '@heroicons/react/16/solid'
 
 export default function Example() {
   return (
+    <div>
     <form className='mx-20 my-30'>
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
@@ -176,5 +177,8 @@ export default function Example() {
         </button>
       </div>
     </form>
+    </div>
+   
+
   )
 }

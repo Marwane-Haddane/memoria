@@ -1,30 +1,37 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Home from './components/home/Home';
+import About from './components/about/About';
+import AddSick from './components/Patient/AddSick';
+import Contact from './components/contact/Contact';
+import Log from './components/login/log';
+import Footer from './components/footer/Footer';
+import Nav from './components/nav/Nav';
+import Sidebar from './components/Patient/Sidebar';
 
-import { useState } from 'react'
-import Home from './components/home/Home'
-import './App.css'
-import About from './components/about/About'
-import AddSick from './components/addPatient/AddSick'
-import Contact from './components/contact/Contact'
-import Log from './components/login/log'
-import Footer from './components/footer/Footer'
-import Nav from './components/nav/Nav'
 
-function App() {
+function AppWrapper() {
   return (
-   <>
-   <BrowserRouter>
-    <Nav></Nav>
-   <Routes>
-        <Route path="/" element={<><Home /><About/><Contact/></>} />
-        <Route path="/patient" element={<AddSick />} />
-        {/*  when we will add the login i will add this link  */}
-        <Route path="/login" element={<Log />} />
-    </Routes>
-    <Footer></Footer>
+    <BrowserRouter>
+      <App />
     </BrowserRouter>
-   </>
-  )
+  );
 }
 
-export default App
+function App() {
+  const location = useLocation();
+  const hideNavbar = location.pathname === '/patient';
+
+  return (
+    <>
+      {!hideNavbar && <Nav />}
+      <Routes>
+        <Route path="/" element={<><Home /><About /><Contact /><Footer  /></>} />
+        <Route path="/patient" element={<><Sidebar /></>} />
+        <Route path="/login" element={<><Log /><Footer /></>} />
+      </Routes>
+      
+    </>
+  );
+}
+
+export default AppWrapper;

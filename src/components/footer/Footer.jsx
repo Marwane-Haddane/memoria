@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from '../../assets/logo.png' 
 import './footer.css'
+import { HashLink as Link } from 'react-router-hash-link';
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -16,23 +17,35 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#home" className="hover:text-blue-400 transition">Home</a></li>
-              <li><a href="#about" className="hover:text-blue-400 transition">About</a></li>
-              <li><a href="#Contact" className="hover:text-blue-400 transition">Contact</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition">Get Started</a></li>
+              <Link to= "/#home" >
+              <li><span className="hover:text-blue-400 transition">Home</span></li>
+              </Link>
+
+              <Link to= "/#about" >
+              <li><span className="hover:text-blue-400 transition">About</span></li>
+              </Link>
+              
+              <Link to= "/#contact" >
+              <li><span className="hover:text-blue-400 transition">Contact</span></li>
+              </Link>
+              
+              <Link to= "/patient" >
+              <li><span className="hover:text-blue-400 transition">Get Started</span></li>
+              </Link>
             </ul>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold mb-4">About Our Project</h3>
             <p className="text-gray-300 mb-6 leading-relaxed">Welcome to Memoria, your trusted partner in cognitive care. We offer an advanced suite of AI and IoT solutions, ensuring an exceptional support experience for families and caregivers. Our commitment to compassionate innovation and patient well-being sets us apart in health technology</p>
-            <a href='#home' aria-label='logo'>
+            <Link to="/#home">
             <img
               src={logo}
               alt="Company Logo"
               className="hov h-10 w-auto mb-4"
             />
-            </a>
+            </Link>
+            
           </div>
         </div>
 

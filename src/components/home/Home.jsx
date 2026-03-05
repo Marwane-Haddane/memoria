@@ -30,9 +30,9 @@ function Home() {
 
                         {/*------------------- fix the link here to start -------------------- */}
                         <Link to="/patient">
-                        <button id='' class="btn-53">
-                        <div class="original">Let's_Start</div>
-                        <div class="letters">
+                        <button id='' className="btn-53">
+                        <div className="original">Let's_Start</div>
+                        <div className="letters">
                             
                             <span>L</span>
                             <span>E</span>

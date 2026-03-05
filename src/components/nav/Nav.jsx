@@ -11,7 +11,7 @@ const Navbar = () => {
             
                     
                     {/* --------------------------------      fix link to home -------------- */}
-        <Link to="/" aria-label='logo' onClick={() => setMenuOpen(false)}>
+        <Link to="/#home" aria-label='logo' onClick={() => setMenuOpen(false)}>
                 <img src={logo} alt="Memoria" className='logo mt-5' />
         </Link>
 

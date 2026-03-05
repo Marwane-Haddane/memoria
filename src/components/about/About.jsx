@@ -69,6 +69,104 @@ function About() {
             
           </div>
 
+
+
+
+
+
+        <section id="testimonies" className="py-20 bg-white">
+  <div className="max-w-6xl mx-auto px-4">
+    {/* Header */}
+    <div className="mb-12 text-center">
+      <div className="inline-block px-3 py-1 mb-4 text-sm font-semibold text-indigo-600 rounded-lg bg-gray-100 hover:bg-gray-200 cursor-pointer">
+        Words from Our Clients
+      </div>
+      <h1 className="text-3xl font-semibold text-gray-900 md:text-5xl mb-2">
+        It's not just us.
+      </h1>
+      <p className="text-xl text-gray-700 md:text-2xl">
+        Here's what others have to say about us.
+      </p>
+    </div>
+
+    {/* Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[
+        {
+          name: "Kanye West",
+          role: "Rapper & Entrepreneur",
+          image: "https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v_400x400.jpg",
+          testimonial: "Find God.",
+          url: "https://twitter.com/kanyewest",
+        },
+        {
+          name: "Tim Cook",
+          role: "CEO of Apple",
+          image: "https://pbs.twimg.com/profile_images/1535420431766671360/Pwq-1eJc_400x400.jpg",
+          testimonial:
+            "Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare. Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum.",
+          url: "https://twitter.com/tim_cook",
+        },
+        {
+          name: "Parag Agrawal",
+          role: "CEO of Twitter",
+          image: "https://pbs.twimg.com/profile_images/1375285353146327052/y6jeByyD_400x400.jpg",
+          testimonial:
+            "Enim neque volutpat ac tincidunt vitae semper. Mattis aliquam faucibus purus in massa tempor. Neque vitae tempus quam pellentesque nec.",
+          url: "https://twitter.com/paraga",
+        },
+        {
+          name: "Satya Nadella",
+          role: "CEO of Microsoft",
+          image: "https://pbs.twimg.com/profile_images/1221837516816306177/_Ld4un5A_400x400.jpg",
+          testimonial:
+            "Tortor dignissim convallis aenean et tortor at. At ultrices mi tempus imperdiet nulla malesuada. Id cursus metus aliquam eleifend mi.",
+          url: "https://twitter.com/satyanadella",
+        },
+        {
+          name: "Dan Schulman",
+          role: "CEO of PayPal",
+          image: "https://pbs.twimg.com/profile_images/516916920482672641/3jCeLgFb_400x400.jpeg",
+          testimonial:
+            "Quam pellentesque nec nam aliquam sem et tortor consequat id. Enim sit amet venenatis urna cursus.",
+          url: "https://twitter.com/dan_schulman",
+        },
+      ].map((person, idx) => (
+        <a
+          key={idx}
+          href={person.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block rounded-lg bg-gray-50 p-6 ring-1 ring-gray-200 hover:shadow-lg transition-shadow duration-300"
+        >
+          <div className="flex items-center space-x-4 mb-4">
+            <img
+              src={person.image}
+              alt={person.name}
+              className="w-12 h-12 rounded-full border bg-gray-200 object-cover"
+            />
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900">{person.name}</h3>
+              <p className="text-gray-500 text-sm">{person.role}</p>
+            </div>
+          </div>
+          <p className="text-gray-700">{person.testimonial}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+          <p className="text-xl text-gray-700 md:text-2xl text-center font-semibold">
+            Here's what Our Customers said 
+          </p>
+
           <div style={{ height: '600px', position: 'relative' }}>
             <CircularGallery 
             items={testimonialData} 
@@ -79,6 +177,7 @@ function About() {
 
           </div>
         
+
     
     </div>
   )
