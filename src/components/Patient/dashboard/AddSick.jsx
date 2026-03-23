@@ -4,8 +4,8 @@ import { db, rdb } from './firebaseconfig';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { ref, set } from "firebase/database";
 
-const CLOUDINARY_CLOUD_NAME = "dnye0gigw";
-const CLOUDINARY_UPLOAD_PRESET = "memoria";
+const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_NAME;
+const CLOUDINARY_UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_PRESET;
 
 export default function Example() {
   const [nom, setNom] = useState('');
