@@ -1,7 +1,37 @@
+import React, { useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
 import './contact.css'
 
 export default function Example() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    // Web3Forms requires the access_key to be in the form data
+    formData.append("access_key", "1b31d6fc-0026-4471-a427-6d0e7efd0fd9");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      
+      const resData = await response.json();
+
+      if (resData.success) {
+        setSubmitted(true);
+        form.reset();
+      } else {
+        alert("Oops! " + (resData.message || "There was a problem submitting your form"));
+      }
+    } catch (error) {
+      alert("Oops! Connections error. Please try again.");
+    }
+  };
+
   return (
     <div id='Contact' className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div
@@ -29,77 +59,94 @@ export default function Example() {
             
           </div>
           <div className="w-full">
-            <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
-              <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-                <div>
-                  <label htmlFor="first-name" className="hovF block text-sm/6 font-semibold text-gray-900">
-                    First name
-                  </label>
-                  <div className="mt-2.5">
-                    <input
-                      id="first-name"
-                      name="first-name"
-                      type="text"
-                      autoComplete="given-name"
-                      className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="last-name" className="hovF  block text-sm/6 font-semibold text-gray-900">
-                    Last name
-                  </label>
-                  <div className="mt-2.5">
-                    <input
-                      id="last-name"
-                      name="last-name"
-                      type="text"
-                      autoComplete="family-name"
-                      className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                    />
-                  </div>
-                </div>
-                
-                <div className="sm:col-span-2">
-                  <label htmlFor="email" className="hovF block text-sm/6 font-semibold text-gray-900">
-                    Email
-                  </label>
-                  <div className="mt-2.5">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                    />
-                  </div>
-                </div>
-              
-                <div className="sm:col-span-2">
-                  <label htmlFor="message" className="hovF block text-sm/6 font-semibold text-gray-900">
-                    Message
-                  </label>
-                  <div className="mt-2.5">
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                      defaultValue={''}
-                    />
-                  </div>
-                </div>
-              
-              </div>
-              <div className="mt-10">
-                <button
-                  type="submit"
-                  className="btnContact block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            {submitted ? (
+              <div className="mx-auto mt-16 max-w-xl sm:mt-20 p-8 bg-green-50 rounded-xl border border-green-100 text-center">
+                <h3 className="text-2xl font-bold text-green-800 mb-2">Message Sent!</h3>
+                <p className="text-green-700">Thank you for reaching out. We'll get back to you at raspberrypiafri@gmail.com shortly.</p>
+                <button 
+                  onClick={() => setSubmitted(false)}
+                  className="mt-6 text-indigo-600 font-semibold hover:text-indigo-500"
                 >
-                  Let's talk
+                  Send another message
                 </button>
               </div>
-            </form>
+            ) : (
+              <form onSubmit={handleSubmit} className="mx-auto mt-16 max-w-xl sm:mt-20">
+                <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="first-name" className="hovF block text-sm/6 font-semibold text-gray-900">
+                      First name
+                    </label>
+                    <div className="mt-2.5">
+                      <input
+                        id="first-name"
+                        name="first-name"
+                        type="text"
+                        autoComplete="given-name"
+                        required
+                        className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="last-name" className="hovF  block text-sm/6 font-semibold text-gray-900">
+                      Last name
+                    </label>
+                    <div className="mt-2.5">
+                      <input
+                        id="last-name"
+                        name="last-name"
+                        type="text"
+                        autoComplete="family-name"
+                        required
+                        className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="sm:col-span-2">
+                    <label htmlFor="email" className="hovF block text-sm/6 font-semibold text-gray-900">
+                      Email
+                    </label>
+                    <div className="mt-2.5">
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        autoComplete="email"
+                        required
+                        className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                      />
+                    </div>
+                  </div>
+                
+                  <div className="sm:col-span-2">
+                    <label htmlFor="message" className="hovF block text-sm/6 font-semibold text-gray-900">
+                      Message
+                    </label>
+                    <div className="mt-2.5">
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows={4}
+                        required
+                        className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                        defaultValue={''}
+                      />
+                    </div>
+                  </div>
+                
+                </div>
+                <div className="mt-10">
+                  <button
+                    type="submit"
+                    className="btnContact block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    Let's talk
+                  </button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
     </div>

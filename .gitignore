@@ -25,3 +25,7 @@ dist-ssr
 
 #security
 .env
+serviceAccountKey.json
+service-account-key.json
+*.json.local
+firebase-key.json
